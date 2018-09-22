@@ -1,0 +1,41 @@
+.recipe {
+  padding: 25px;
+  margin: 15px 0;
+
+  &:hover {
+    background-color: $soft-gray;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__title {
+    text-align: left;
+    font-size: 24px;
+    text-decoration: none;
+    color: $text-color;
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__ingredients {
+    text-align: left;
+    font-size: 14px;
+    text-decoration: none;
+    color: $text-color;
+    margin: 5px 0;
+  }
+
+  &__ingredient {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    background-color: $gray;
+    margin: 5px 10px 5px 0;
+    border-radius: 5px;
+  }
+}

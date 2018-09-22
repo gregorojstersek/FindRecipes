@@ -1,0 +1,16 @@
+<form class="form">
+
+  <div class="form__group">
+    <label for="ingredients" class="form__label">Ingredients</label>
+    <input type="text" id="ingredients" class="form__style form__input" name="ingredients" [(ngModel)]="ingredients">
+  </div>
+
+  <div class="form__group">
+    <label for="ingredients" class="form__label">Course</label>
+    <input type="text" id="ingredients" class="form__style form__input" name="course" [(ngModel)]="course">
+  </div>
+
+  <button type="submit" class="btn btn__blue btn__block" (click)="search()" [disabled]="!canSearch()">Display</button>
+
+</form>
+<br>

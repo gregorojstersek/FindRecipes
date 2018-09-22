@@ -1,0 +1,29 @@
+<div class="recipe" *ngFor="let recipe of recipes">
+  <div class="grid flex--center">
+    <div class="grid__25">
+      <a href="{{ recipe.href }}" target="_blank" class="recipe__link">
+        <img *ngIf="recipe.thumbnail" src="{{ recipe.thumbnail }}" />
+        <img *ngIf="!recipe.thumbnail" src="assets/no-img.png" />
+      </a>
+    </div>
+    <div class="grid__75">
+      <a href="{{ recipe.href }}" target="_blank" class="recipe__link">
+        <h3 class="recipe__title">{{ recipe.title }}</h3>
+      </a>
+      <div class="recipe__ingredients">
+        <span class="recipe__ingredient" *ngFor="let ingredient of recipe.ingredients" (click)="addToIngredients(ingredient)"
+          title="Add to search">{{
+          ingredient }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center" *ngIf="recipesDataReceived && recipes?.length === 0">
+  <img src="assets/smiley-n.svg" class="inline-svg" /> There appears to be no recipes found for your search.
+</div>
+
+<button class="btn btn__black text-center margin-50" (click)="searchMore()" *ngIf="recipes?.length > 0 && canSearchMore">
+  Show more
+</button>

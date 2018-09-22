@@ -1,0 +1,29 @@
+@mixin grid {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@mixin grid-media {
+  @media (max-width: 768px) {
+    margin-top: 35px;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+}
+
+@mixin grid-offset-media {
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+}
+
+@mixin mobile-100 {
+  @media (max-width: 768px) {
+    min-width: 100%;
+    width: 100%;
+  }
+}
