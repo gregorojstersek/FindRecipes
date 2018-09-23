@@ -50,7 +50,7 @@ Built with Angular 6, using Angular CLI.
 * search by different courses
 * displaying the recipes with the title, image, ingredients and url to the site where full recipe is available
 * you can click on different ingredients and add them to the search
-* 10 recipes are show at a time - you can click "Show more" if you want to see more recipes within a search
+* 10 recipes are shown in a initial search - you can click "Show more" if you want to see more recipes within a search
 
 ## Server side 
 
