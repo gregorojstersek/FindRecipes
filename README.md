@@ -1,10 +1,10 @@
 # Find recipes
 
-A [[https://find-recipes-176545.herokuapp.com/][web application]] that finds recipes based on igredients and courses.
+A [web application](https://find-recipes-176545.herokuapp.com/) that finds recipes based on igredients and courses.
 
 ## Preview
 
-[[https://user-images.githubusercontent.com/9784551/45925451-caa79980-bf15-11e8-860a-558700360bcf.gif]]
+![alt text](https://user-images.githubusercontent.com/9784551/45925451-caa79980-bf15-11e8-860a-558700360bcf.gif)
 
 ## Install 
 
@@ -40,11 +40,9 @@ npm start
 
 That will start the express server on localhost:3000 and client app on localhost:4200.
 
-## Server side 
-
-You can check the [[https://github.com/gregorojstersek/RecipePuppyApiHandling][repo]] for more info. 
-
 ## Client side
+
+Built with Angular 6, using Angular CLI.
 
 ### Functionalities
 
@@ -53,4 +51,8 @@ You can check the [[https://github.com/gregorojstersek/RecipePuppyApiHandling][r
 * displaying the recipes with the title, image, ingredients and url to the site where full recipe is available
 * you can click on different ingredients and add them to the search
 * 10 recipes are show at a time - you can click "Show more" if you want to see more recipes within a search
+
+## Server side 
+
+You can check the [repo](https://github.com/gregorojstersek/RecipePuppyApiHandling) for more info. 
 
