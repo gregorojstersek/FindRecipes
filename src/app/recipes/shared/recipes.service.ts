@@ -1,39 +1,44 @@
 import { RecipeUrlParams } from './recipeUrlParams.model';
 import { Injectable } from '@angular/core';
-import { Response, Headers, Http } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpParams, HttpEvent } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { RecipeData } from './recipeData.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
 
-  private recipesData = new Subject<{ recipes: Array<any>, action: string; }>();
-  private recipesDataError = new Subject<Response>();
+  private recipesData = new Subject<{ recipes: Array<RecipeData>, action: string; }>();
+  private recipesDataError = new Subject<HttpEvent<Object>>();
   private newIngredient = new Subject<string>();
   private newCourse = new Subject<string>();
 
   private recipeUrlParams = new RecipeUrlParams();
   private currentPage = 1;
 
-  constructor(private http: Http) { }
+  constructor(private httpClient: HttpClient) { }
 
   getRecipes = (recipeUrlParams: RecipeUrlParams) => {
     this.recipeUrlParams = recipeUrlParams;
     this.recipeUrlParams.p = this.currentPage;
 
-    return this.http.get('/recipes/', { params: this.recipeUrlParams })
-      .pipe(map((res: Response) => res.json()))
-      .subscribe((recipes) => {
+    // add params
+    let httpParams = new HttpParams();
+    Object.keys(recipeUrlParams).forEach((key) => {
+      httpParams = httpParams.append(key, recipeUrlParams[key]);
+    });
+
+    return this.httpClient.get('/recipes/', { params: httpParams })
+      .subscribe((recipes: RecipeData[]) => {
 
         // check for adding or replacing
         const action = this.currentPage === 1 ? 'replace' : 'add';
 
         // attach the data
-        this.recipesData.next({ recipes: recipes.results, action: action });
+        this.recipesData.next({ recipes: recipes, action: action });
       },
-        (error: Response) => {
+        (error: HttpEvent<Object>) => {
           // show the error message
           this.recipesDataError.next(error);
         });

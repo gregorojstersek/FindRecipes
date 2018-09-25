@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from '../shared/recipes.service';
-import { Recipe } from '../shared/recipe.model';
+import { RecipeView } from '../shared/recipeView.model';
+import { RecipeData } from '../shared/recipeData.model';
 
 @Component({
   selector: 'app-recipes-display',
@@ -8,7 +9,7 @@ import { Recipe } from '../shared/recipe.model';
 })
 export class RecipesDisplayComponent implements OnInit {
 
-  recipes: Array<Recipe> = [];
+  recipes: RecipeView[] = [];
   recipesDataReceived: boolean;
 
   canSearchMore: boolean;
@@ -16,7 +17,7 @@ export class RecipesDisplayComponent implements OnInit {
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit() {
-    this.recipesService.getRecipesData().subscribe((data) => {
+    this.recipesService.getRecipesData().subscribe((data: { recipes: RecipeData[], action: string }) => {
       // console.log(data);
       if (data.action === 'add') {
         this.recipes.push(...this.handleRecipesData(data.recipes));
