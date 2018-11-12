@@ -11,7 +11,7 @@ A [web application](https://find-recipes-176545.herokuapp.com/) that finds recip
 Make sure you clone the repo with the submodule
 
 ```sh
-git clone --recurse-submodules https://github.com/gregorojstersek/FindRecipes.git
+git clone --recurse-submodules https://github.com/gregorojstersek/find-recipes.git
 ```
 
 Make sure you have nodemon installed as a global package.
@@ -54,5 +54,5 @@ Built with Angular 6, using Angular CLI.
 
 ## Server side 
 
-You can check the [repo](https://github.com/gregorojstersek/RecipePuppyApiHandling) for more info. 
+You can check the [repo](https://github.com/gregorojstersek/recipe-puppy-api-handling) for more info. 
 
